@@ -12,7 +12,7 @@ import java.sql.*;
 public class HelloApi {
 
 	public static Connection makeConnection() {
-		String url = "jdbc:mysql://localhost/min";
+		String url = "jdbc:mysql://localhost/world";
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
