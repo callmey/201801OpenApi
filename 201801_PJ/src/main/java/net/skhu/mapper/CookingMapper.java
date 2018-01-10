@@ -12,6 +12,6 @@ public interface CookingMapper {
 	int count(Pagination pagination);
     void delete(String recipe_id);
     //void update(@Param("id") String recipe_id, @Param("sumry") String sumry);
-    void insert(Cooking cooking);
+    //void insert(Cooking cooking);
 
 }
