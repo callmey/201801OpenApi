@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+       "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.skhu.mapper.BasicMapper">
+
+  <select id="findOne" resultType="Basic">
+    SELECT *
+    FROM basic 
+    WHERE recipe_id = #{recipe_id} 
+  </select>
+
+  <select id="findAll" resultType="Basic">
+    <bind name="start" value="(pg - 1) * sz" />
+    SELECT * 
+    FROM basic
+    LIMIT ${start}
+  </select>
+  
+  <select id="count" resultType="int">
+    SELECT COUNT(*) 
+    FROM basic  
+  </select>
+
+  <select id="findTopByrecipeIdOrderByNoDesc" resultType="Basic">
+    SELECT * FROM basic
+    ORDER BY DESC
+    LIMIT 0, 1
+  </select>
+  
+  <delete id="delete">
+    DELETE FROM basic WHERE recipe_id = #{recipe_id}
+  </delete>
+  
+  <insert id="insert">
+    INSERT basic (recipe_nm_ko, sumry, nation_nm, ty_nm, calorie, img_url)
+    VALUES (#{recipe_nm_ko}, #{sumry}, #{nation_nm}, #{ty_nm}, #{calorie}, #{img_url})
+  </insert>
+
+</mapper>
