@@ -1,14 +1,17 @@
 package net.skhu.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.support.ErrorPageFilter;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import net.skhu.mapper.BasicMapper;
-//import net.skhu.model.BasicModel;
-	import net.skhu.model.Pagination;
+import net.skhu.mapper.CookingMapper;
+import net.skhu.model.Pagination;
 import net.skhu.service.BasicService;
 import net.skhu.service.CookingService;
 
@@ -18,7 +21,7 @@ public class BasicController {
 	@Autowired BasicService basicService;
 	@Autowired CookingService cookingService;
     @Autowired BasicMapper basicMapper;
-    @Autowired BasicMapper cookingMapper;
+    @Autowired CookingMapper cookingMapper;
 
 	    @RequestMapping("list")
 	    public String list(Pagination pagination, Model model) {
@@ -27,8 +30,8 @@ public class BasicController {
 	    }
 
 	    @RequestMapping("view")
-	    public String view(@RequestParam("recipe_id") String recipe_id, Pagination pagination, Model model) {
-	        model.addAttribute("basicModel", basicService.findOne(recipe_id));
+	    public String view(@RequestParam("recipe_id") int recipe_id, Pagination pagination, Model model) {
+	        model.addAttribute("basic", basicService.findOne(recipe_id));
 	        return "basic/view";
 	    }
 
@@ -75,4 +78,16 @@ public class BasicController {
 	        basicService.delete(recipe_id);
 	        return "redirect:list?" + pagination.getQueryString();
 	    }*/
+	    @Bean
+	    public ErrorPageFilter errorPageFilter() {
+	        return new ErrorPageFilter();
+	    }
+
+	    @Bean
+	    public FilterRegistrationBean disableSpringBootErrorFilter(ErrorPageFilter filter) {
+	        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+	        filterRegistrationBean.setFilter(filter);
+	        filterRegistrationBean.setEnabled(false);
+	        return filterRegistrationBean;
+	    }
 	}

@@ -20,7 +20,6 @@
   <h1>레시피모음</h1>
   <form:form method="get" modelAttribute="pagination" class="form-inline mb5">
     <form:hidden path="pg" value="1" />
-    <form:hidden path="bd" />
     <form:input path="st" class="form-control" placeholder="검색문자열" />
     <button type="submit" class="btn btn-default">
       <i class="glyphicon glyphicon-search"></i> 검색</button>
@@ -47,9 +46,9 @@
       <c:forEach var="basic" items="${ list }">
         <tr data-url="view?id=${basic.recipe_id}&${ pagination.queryString }">
           <td class="text-center">${ basic.recipe_id }</td>
-          <td>${ basic.recipe_nm_ko}</td>
+          <td>${basic.recipe_nm_ko}</td>
           <td>${basic.sumry}</td>
-          <td>${basic.nation_nm} < ${basic.ty_nm}</td>
+          <td>${basic.nation_nm} - ${basic.ty_nm}</td>
           <td>${basic.calorie}</td>
         </tr>
       </c:forEach>

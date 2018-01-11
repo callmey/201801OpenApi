@@ -14,7 +14,7 @@
     <bind name="start" value="(pg - 1) * sz" />
     SELECT * 
     FROM basic
-    LIMIT ${start}
+    LIMIT ${start}, ${sz}
   </select>
   
   <select id="count" resultType="int">
@@ -22,9 +22,9 @@
     FROM basic  
   </select>
 
-  <select id="findTopByrecipeIdOrderByNoDesc" resultType="Basic">
+  <select id="findTopByRecipeIdOrderByDesc" resultType="Basic">
     SELECT * FROM basic
-    ORDER BY DESC
+    ORDER BY recipe_id DESC
     LIMIT 0, 1
   </select>
   

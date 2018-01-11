@@ -13,7 +13,7 @@ import net.skhu.model.Pagination;
 public class CookingService {
 	@Autowired CookingMapper cookingMapper;
 
-    public Cooking findOne(String recipe_id) {
+    public Cooking findOne(int recipe_id) {
         return cookingMapper.findOne(recipe_id);
     }
 
@@ -23,7 +23,7 @@ public class CookingService {
         return cookingMapper.findAll(pagination);
     }
 
-    public void delete(String recipe_id) {
+    public void delete(int recipe_id) {
         cookingMapper.delete(recipe_id);
     }
 }

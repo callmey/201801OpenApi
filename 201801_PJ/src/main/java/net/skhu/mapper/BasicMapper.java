@@ -9,12 +9,11 @@ import net.skhu.model.Pagination;
 
 @Mapper
 public interface BasicMapper {
-
-	 	Basic findOne(String recipe_id);
+	 	Basic findOne(int recipe_id);
 	    List<Basic> findAll(Pagination pagination);
 	    int count(Pagination pagination);
-	    Basic findTopByRecipeIdOrderByNoDesc(String recipe_id);
-	    void delete(String recipe_id);
+	    Basic findTopByRecipeIdOrderByDesc(int recipe_id);
+	    void delete(int recipe_id);
 	    //void update(@Param("id") String recipe_id, @Param("sumry") String sumry);
 	    void insert(Basic basic);
 

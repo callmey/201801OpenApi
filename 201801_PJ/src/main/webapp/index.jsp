@@ -10,10 +10,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
 <div class="container">
-   <h1>bbs2</h1>
+   <h1>농림수축산물 안심레시피</h1>
    <hr />
    
-   <a href="basic/list" class="btn btn-default">레시피모음</a>
+   <a href="basic/list?" class="btn btn-default">레시피모음</a>
 </div>
 </body>
 </html>

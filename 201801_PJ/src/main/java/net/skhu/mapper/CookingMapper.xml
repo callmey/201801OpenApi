@@ -12,11 +12,11 @@
 
   <select id="findAll" resultType="Cooking">
     SELECT * 
-    FROM basic
+    FROM cooking
   </select>
   
   <delete id="delete">
-    DELETE FROM basic WHERE recipe_id = #{recipe_id}
+    DELETE FROM cooking WHERE recipe_id = #{recipe_id}
   </delete>
 
 </mapper>
