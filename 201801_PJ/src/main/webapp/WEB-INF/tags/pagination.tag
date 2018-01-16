@@ -54,5 +54,3 @@ if (n <= pageCount)
     </li>    
   <% } %>
 </ul>
-
-

@@ -4,37 +4,36 @@
 
 <mapper namespace="net.skhu.mapper.BasicMapper">
 
-  <select id="findOne" resultType="Basic">
-    SELECT *
-    FROM basic 
-    WHERE recipe_id = #{recipe_id} 
-  </select>
+	
 
-  <select id="findAll" resultType="Basic">
-    <bind name="start" value="(pg - 1) * sz" />
-    SELECT * 
-    FROM basic
-    LIMIT ${start}, ${sz}
-  </select>
-  
-  <select id="count" resultType="int">
-    SELECT COUNT(*) 
-    FROM basic  
-  </select>
+	<select id="findAll" resultType="Basic">
+		<bind name="start" value="(pg-1)*sz"/>
+		SELECT * FROM basic
+		WHERE recipe_id=recipe_id
+		<if test="sb==1"> And recipe_nm_ko like concat('%',#{st},'%')</if>
+		<if test="sb==2"> And calorie like concat('%',#{st},'%') </if>
+		<if test="sb==3"> And  nation_nm like concat('%',#{st},'%')</if>
+		Order By
+			<choose>
+				<when test="ob==1">calorie desc</when>
+				<when test="ob==2">ty_nm</when>
+				<otherwise>recipe_id asc</otherwise>
+			</choose>
+			LIMIT ${start},${sz}
+	</select>
 
-  <select id="findTopByRecipeIdOrderByDesc" resultType="Basic">
-    SELECT * FROM basic
-    ORDER BY recipe_id DESC
-    LIMIT 0, 1
-  </select>
-  
-  <delete id="delete">
-    DELETE FROM basic WHERE recipe_id = #{recipe_id}
-  </delete>
-  
-  <insert id="insert">
-    INSERT basic (recipe_nm_ko, sumry, nation_nm, ty_nm, calorie, img_url)
-    VALUES (#{recipe_nm_ko}, #{sumry}, #{nation_nm}, #{ty_nm}, #{calorie}, #{img_url})
-  </insert>
+
+	<select id ="count" resultType ="int">
+		Select Count(recipe_id)
+		from basic where recipe_id= recipe_id
+		<if test="sb==1"> And recipe_nm_ko = #{st} </if>
+		<if test="sb==2"> And calorie = #{st} </if>
+		
+	</select>
+	<select id ="rd" resultType ="int">
+		Select recipe_id
+		from basic where recipe_id= recipe_id
+	</select>
+
 
 </mapper>
