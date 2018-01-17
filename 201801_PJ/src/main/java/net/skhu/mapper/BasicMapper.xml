@@ -26,10 +26,11 @@
 	<select id ="count" resultType ="int">
 		Select Count(recipe_id)
 		from basic where recipe_id= recipe_id
-		<if test="sb==1"> And recipe_nm_ko = #{st} </if>
-		<if test="sb==2"> And calorie = #{st} </if>
-		
+		<if test="sb==1"> And recipe_nm_ko like concat('%',#{st},'%')</if>
+		<if test="sb==2"> And calorie like concat('%',#{st},'%') </if>
+		<if test="sb==3"> And  nation_nm like concat('%',#{st},'%')</if>
 	</select>
+	
 	<select id ="rd" resultType ="int">
 		Select recipe_id
 		from basic where recipe_id= recipe_id
