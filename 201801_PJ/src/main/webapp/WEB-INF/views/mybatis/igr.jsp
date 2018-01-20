@@ -35,7 +35,7 @@
 		
 		<tbody>
 		<c:forEach var="ingredient" items="${ingredients}">
-			<tr> 
+			<tr data-url="slide.do?recipe_id=${ingredient.recipe_id}">  
 				<td> ${ ingredient.recipe_id} </td>
 				<td> ${ ingredient.irdnt_sn } </td>
 				<td> ${ ingredient.irdnt_nm } </td>

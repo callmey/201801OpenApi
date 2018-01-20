@@ -10,6 +10,7 @@ import net.skhu.model.Pagination;
 @Mapper
 public interface CookingMapper {
 
+	List<Cooking> findByRecipeId(/*Pagination slide ,*/ int recipe_id);
 	Cooking findOne(int recipe_id);
 	List<Cooking> findAll(Pagination pagination);
 	int count(Pagination pagination);

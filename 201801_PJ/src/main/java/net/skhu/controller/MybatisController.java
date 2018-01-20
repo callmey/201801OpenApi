@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import net.skhu.dto.Basic;
+import net.skhu.dto.Cooking;
 import net.skhu.dto.Ingredient;
 import net.skhu.mapper.BasicMapper;
+import net.skhu.mapper.CookingMapper;
 import net.skhu.mapper.IngredientMapper;
 import net.skhu.model.Option;
 import net.skhu.model.Pagination;
@@ -23,6 +25,8 @@ public class MybatisController {
 	BasicMapper basicMapper;
 	@Autowired
 	IngredientMapper ingredientMapper;
+	@Autowired
+	CookingMapper cookingMapper;
 
 	@RequestMapping(value = "dynamicSQL2")
 	public String dynamicSQL2(Pagination pagination, Model model) {
@@ -51,6 +55,17 @@ public class MybatisController {
 	}
 
 
+	@RequestMapping(value="slide",method=RequestMethod.GET)
+	public String slide (/*Pagination slide,*/ Model model ,@RequestParam("recipe_id") int id ) {
+
+		//int count = cookingMapper.count(slide);
+		//slide.setRecordCount(count);
+
+		List<Cooking> list = cookingMapper.findByRecipeId(/*slide,*/ id);
+		model.addAttribute("list", list);
+
+		return "mybatis/slide";
+	}
 
 
 }

@@ -4,6 +4,18 @@
 
 <mapper namespace="net.skhu.mapper.CookingMapper">
 
+	<select id="findByRecipeId" resultType="Cooking">
+		
+		SELECT * FROM cooking
+		WHERE recipe_id= #{recipe_id}
+		Order By
+		cooking_no
+		
+	</select>
+
+
+
+
   <select id="findOne" resultType="Cooking">
     SELECT *
     FROM cooking
@@ -18,5 +30,7 @@
   <delete id="delete">
     DELETE FROM cooking WHERE recipe_id = #{recipe_id}
   </delete>
+
+
 
 </mapper>
