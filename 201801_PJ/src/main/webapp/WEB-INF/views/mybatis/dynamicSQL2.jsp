@@ -46,7 +46,7 @@
  	<c:forEach var="basic" items="${ list }">
 	   
 	   <table  class="table table-bordered" >
-	      <tr><th>id</th><td>${ basic.recipe_id }</td></tr>
+	      <tr data-url="igr.do?recipe_id=${basic.recipe_id} "><th>id</th><td>${ basic.recipe_id }</td></tr>
           <tr><th>음식 이름</th> <td>${ basic.recipe_nm_ko }</td></tr>
           <tr><th>요약</th> <td>${ basic.sumry }</td></tr>
           <tr><th>유형분류</th><td>${ basic.nation_nm }</td></tr>
