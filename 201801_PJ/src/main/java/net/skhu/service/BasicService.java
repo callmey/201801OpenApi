@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import net.skhu.dto.Basic;
 import net.skhu.mapper.BasicMapper;
@@ -25,7 +24,7 @@ public class BasicService {
         return basicMapper.findAll(pagination);
     }
 
-    public int insertBasic(@RequestBody Basic b, int recipe_id) {
+    /*public int insertBasic(@RequestBody Basic b, int recipe_id) {
     	Basic last = basicMapper.findTopByRecipeIdOrderByDesc(recipe_id);
         int no = (last == null) ? 1 : last.getRecipe_id() + 1;
         System.out.println(no);
@@ -39,10 +38,10 @@ public class BasicService {
         basic.setImg_url(b.getImg_url());
         basicMapper.insert(basic);
         return basic.getRecipe_id();
-    }
+    } */
 
-    public void delete(int recipe_id) {
+    /*public void delete(int recipe_id) {
         basicMapper.delete(recipe_id);
-    }
+    }*/
 }
 

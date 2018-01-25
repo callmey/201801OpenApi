@@ -4,8 +4,6 @@
 
 <mapper namespace="net.skhu.mapper.BasicMapper">
 
-	
-
 	<select id="findAll" resultType="Basic">
 		<bind name="start" value="(pg-1)*sz"/>
 		SELECT * FROM basic

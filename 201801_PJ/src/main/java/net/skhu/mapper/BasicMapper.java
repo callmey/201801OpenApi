@@ -9,6 +9,7 @@ import net.skhu.model.Option;
 import net.skhu.model.Pagination;
 @Mapper
 public interface BasicMapper {
+	Basic findOne(int recipe_id);
     int count(Pagination pagination);
     List<Basic> findAll(Pagination pagination);
 

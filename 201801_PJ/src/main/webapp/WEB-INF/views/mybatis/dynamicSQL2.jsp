@@ -44,8 +44,7 @@
 	<div style="border:1px solid gold; float:left;  witdth:300; height:300;">
 		
  	<c:forEach var="basic" items="${ list }">
-	   
-	   <table  class="table table-bordered" >
+	   <table  class="table table-bordered" href="mybatis/slide">
 	      <tr data-url="igr.do?recipe_id=${basic.recipe_id} "><th>id</th><td>${ basic.recipe_id }</td></tr>
           <tr><th>음식 이름</th> <td>${ basic.recipe_nm_ko }</td></tr>
           <tr><th>요약</th> <td>${ basic.sumry }</td></tr>
@@ -56,7 +55,6 @@
           <tr><th>상세페이지</th><td><a href = ${ basic.det_url }>연결</a></td></tr>
   	 
 	</table>
- 
 	</c:forEach>
 	<my:pagination pageSize="${pagination.sz}" recordCount="${pagination.recordCount}" />
 	 
