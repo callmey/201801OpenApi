@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
 <c:url var="R" value="/" />
 <!DOCTYPE html>
@@ -44,8 +45,9 @@
 	<div style="border:1px solid gold; float:left;  witdth:300; height:300;">
 		
  	<c:forEach var="basic" items="${ list }">
-	   <table  class="table table-bordered" href="mybatis/slide">
-	      <tr data-url="igr.do?recipe_id=${basic.recipe_id} "><th>id</th><td>${ basic.recipe_id }</td></tr>
+ 	<sec:authorize access="not authenticated">  
+    <table  class="table table-bordered" >
+	      <tr><th>id</th><td>${ basic.recipe_id }</td></tr>
           <tr><th>음식 이름</th> <td>${ basic.recipe_nm_ko }</td></tr>
           <tr><th>요약</th> <td>${ basic.sumry }</td></tr>
           <tr><th>유형분류</th><td>${ basic.nation_nm }</td></tr>
@@ -55,6 +57,20 @@
           <tr><th>상세페이지</th><td><a href = ${ basic.det_url }>연결</a></td></tr>
   	 
 	</table>
+  </sec:authorize>
+ 	<sec:authorize access="authenticated">
+	   <table  class="table table-bordered" >
+	      <tr data-url="igr.do?recipe_id=${basic.recipe_id} "><th>id재료페이지로 이동합니다.눌러보세요</th><td>${ basic.recipe_id }</td></tr>
+          <tr><th>음식 이름</th> <td>${ basic.recipe_nm_ko }</td></tr>
+          <tr><th>요약</th> <td>${ basic.sumry }</td></tr>
+          <tr><th>유형분류</th><td>${ basic.nation_nm }</td></tr>
+          <tr><th>음식분류</th> <td>${ basic.ty_nm }</td></tr>
+          <tr><th>칼로리</th> <td>${ basic.calorie }</td></tr>
+          <tr><th>이미지</th><td><img src=${ basic.img_url}></td></tr>
+          <tr><th>상세페이지</th><td><a href = ${ basic.det_url }>연결</a></td></tr>
+  	 
+	</table>
+	</sec:authorize>
 	</c:forEach>
 	<my:pagination pageSize="${pagination.sz}" recordCount="${pagination.recordCount}" />
 	 
