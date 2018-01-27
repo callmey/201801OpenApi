@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import net.skhu.dto.User;
 import net.skhu.mapper.UserMapper;
+import net.skhu.utils.Encryption;
 
 @Service
 public class UserService {

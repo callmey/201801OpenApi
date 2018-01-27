@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     {
         http.authorizeRequests()
             .antMatchers("/admin/**").access("ROLE_ADMIN")		//관리자만 접근가능한 URL 형태
-            .antMatchers("/memeber/**").access("ROLE_MEMEBER")  //회원만 접근가능한 URL 형태
+            .antMatchers("/memb/**").authenticated()  	//회원만 접근가능한 URL 형태
             .antMatchers("/guest/**").permitAll()				//permitAll():  아무나 접근가능함
             .antMatchers("/").permitAll()
             .antMatchers("/**").authenticated();				//로그인된 사용자만 접근 가능한 url 형태
@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         http.csrf().disable();
 
         http.formLogin()
-            .loginPage("/guest/index")					//처음 index 페이지를 여기 url 로 바꾸네
+            .loginPage("/guest/index")							//처음 index 페이지를 여기 url 로 바꾸네
             .loginProcessingUrl("/guest/login_processing")
             .failureUrl("/guest/login?error")
             .defaultSuccessUrl("/memb/index", true)

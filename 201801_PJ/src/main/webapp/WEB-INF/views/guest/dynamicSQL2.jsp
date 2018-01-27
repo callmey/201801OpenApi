@@ -60,7 +60,7 @@
   </sec:authorize>
  	<sec:authorize access="authenticated">
 	   <table  class="table table-bordered" >
-	      <tr data-url="igr.do?recipe_id=${basic.recipe_id} "><th>id재료페이지로 이동합니다.눌러보세요</th><td>${ basic.recipe_id }</td></tr>
+	      <tr data-url="/201801_PJ/memb/igr.do?recipe_id=${basic.recipe_id} "><th>id재료페이지로 이동합니다.눌러보세요</th><td>${ basic.recipe_id }</td></tr>
           <tr><th>음식 이름</th> <td>${ basic.recipe_nm_ko }</td></tr>
           <tr><th>요약</th> <td>${ basic.sumry }</td></tr>
           <tr><th>유형분류</th><td>${ basic.nation_nm }</td></tr>

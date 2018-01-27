@@ -13,6 +13,20 @@
 	</select>
 
 
+		<insert id="save" useGeneratedKeys="true" keyProperty="id">
+
+		insert into user values (
+		#{id},
+		#{loginId}, 
+		md5(#{password}), 
+		#{name},
+		#{email},
+		#{enabled},
+		#{userType}
+		)
+		
+	
+	</insert>
 	
 
 </mapper>

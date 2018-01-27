@@ -62,6 +62,7 @@
 				<sec:authorize access="authenticated">
 					<a class="btn btn-default" href="${R}memb/logout_processing">로그아웃</a>
 				</sec:authorize>
+				<a href="register">회원가입</a> <br />
 			</div>
 		</div>
 	</nav>

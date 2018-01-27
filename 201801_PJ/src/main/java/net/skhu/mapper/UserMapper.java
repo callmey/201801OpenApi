@@ -7,6 +7,7 @@ public interface UserMapper {
 
 
 	User findOneByLoginId(String loginId);
+	void save ( User user );
 
 
 }
