@@ -32,7 +32,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="index.jsp">소개<span class="sr-only"></span></a></li>
-					<li calss="dropdown">
+					<li class="dropdown">
 						<a href="mybatis/dynamicSQL2" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">레시피<span class="caret">
 						</span></a>
 						<ul class="dropdown-menu">
@@ -118,7 +118,6 @@
 				</div>
 				<div class="col-sm-2"><h4 style="text-align: center;"><span class="glyphicon glyphicon-ok"></span>&nbsp;by 양다연</h4></div><h4 style="text-align: center;"><span class="glyphicon glyphicon-ok"></span>&nbsp;by 전민선</h4></div>
 			</div>
-		</div>
 	</footer>
 	<div class="row">
 		<div class="modal" id="modal" tabindex="-1">
