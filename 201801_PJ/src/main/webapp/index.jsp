@@ -36,8 +36,8 @@
 						<a href="mybatis/dynamicSQL2" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">레시피<span class="caret">
 						</span></a>
 						<ul class="dropdown-menu">
-							<li><a href="mybatis/dynamicSQL2?theme">테마</a></li>
-							<li><a href="mybatis/dynamicSQL2?ingredient">재료</a></li>
+							<li><a href="guest/dynamicSQL2?theme">테마</a></li>
+							<li><a href="guest/dynamicSQL2?ingredient">재료</a></li>
 						</ul>
 					</li>
 					<li><a href="mybatis/community.jsp">커뮤니티</a></li>
