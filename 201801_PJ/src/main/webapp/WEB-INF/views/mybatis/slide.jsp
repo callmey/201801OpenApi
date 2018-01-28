@@ -38,13 +38,13 @@
 		
 		<tbody> -->
 			
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:50% ; margin:50px 0 0 -50px; argin: ">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:50%">
     <!-- Indicators -->
     <ol class="carousel-indicators">
     <c:forEach var="cooking" items="${list}">
     	<c:set var="cn" value="${cooking.cooking_no}" />
     	<fmt:formatNumber value="${cn}" type="number"/>
-    	<c:set var="i" value="0" />
+    	<c:set var="i" value="1" />
 		<c:choose>    	
     	<c:when test="${cn eq 1}">
       	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -64,11 +64,17 @@
 	      <c:when test="${cooking.cooking_no eq 1}">
 	    	  <div class="item active">
 	        <img src=${ cooking.image_url } style="width:100%"/>
+	        <div class="carousel-caption">
+	        	<p>${cooking.cooking_dc}</p>
+	      	</div>
 	      	</div>
 	      </c:when> 
 	      <c:otherwise>
 		      	<div class="item">
 		        <img src=${ cooking.image_url } style="width:100%"/>
+		        <div class="carousel-caption">
+	        		<p>${cooking.cooking_dc}</p>
+	      		</div>
 		      	</div>
 	      </c:otherwise>
       </c:choose>
@@ -100,8 +106,8 @@
 		</tbody>
 	</table>
 	</div>
--->	 
-  </div>
+
+  </div> -->
   
   
   
