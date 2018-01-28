@@ -18,8 +18,8 @@ import net.skhu.mapper.IngredientMapper;
 import net.skhu.model.Option;
 import net.skhu.model.Pagination;
 @Controller
-@RequestMapping("memb")
-public class MemberController {
+@RequestMapping("mybatis")
+public class MybatisController {
 
 	@Autowired
 	BasicMapper basicMapper;
@@ -43,7 +43,7 @@ public class MemberController {
 		model.addAttribute("searchBy", searchBy);
 
 
-		return "guest/dynamicSQL2";
+		return "mybatis/dynamicSQL2";
 
 	}
 
@@ -51,7 +51,7 @@ public class MemberController {
 	public String igr (Model model, @RequestParam("recipe_id") int id) {
 		List<Ingredient> ingredients = ingredientMapper.findByRecipeId(id);
 		model.addAttribute("ingredients",ingredients);
-		return "memb/igr";
+		return "mybatis/igr";
 	}
 
 
@@ -64,12 +64,8 @@ public class MemberController {
 		List<Cooking> list = cookingMapper.findByRecipeId(/*slide,*/ id);
 		model.addAttribute("list", list);
 
-		return "memb/slide";
+		return "mybatis/slide";
 	}
 
-	@RequestMapping(value = "index")
-    public String index() {
-        return "memb/index";
-    }
 
 }
